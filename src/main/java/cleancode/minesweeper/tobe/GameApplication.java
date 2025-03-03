@@ -6,17 +6,21 @@ import cleancode.minesweeper.tobe.io.ConsoleInputHandler;
 import cleancode.minesweeper.tobe.io.ConsoleOutputHandler;
 import cleancode.minesweeper.tobe.io.InputHandler;
 import cleancode.minesweeper.tobe.io.OutputHandler;
+import cleancode.minesweeper.tobe.minesweeper.Minesweeper;
+import cleancode.minesweeper.tobe.minesweeper.config.GameConfig;
 
 public class GameApplication {
 
     public static void main(String[] args) {
-        GameLevel gameLevel = new Middle();
-        InputHandler inputHandler = new ConsoleInputHandler();
-        OutputHandler outputHandler = new ConsoleOutputHandler();
+        // Configuration for the game
+        GameLevel gameLevel = new Middle();  // Use Middle as the default game level
+        InputHandler inputHandler = new ConsoleInputHandler();  // Input handler
+        OutputHandler outputHandler = new ConsoleOutputHandler();  // Output handler
 
-        MineSweeper mineSweeper = new MineSweeper(gameLevel, inputHandler, outputHandler);
-        mineSweeper.initialize();
-        mineSweeper.run();
+        // Initialize Minesweeper with the game level and handlers
+        Minesweeper minesweeper = new Minesweeper(gameLevel, inputHandler, outputHandler);
+        minesweeper.initialize();
+        minesweeper.run();
     }
 
     /**
@@ -27,5 +31,4 @@ public class GameApplication {
      * IoC (Inversion of Control)
      *
      */
-
 }
